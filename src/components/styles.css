@@ -2,6 +2,10 @@ body {
   color: #444;
 }
 
+.gallery-container {
+  margin: 0 45px;
+}
+
 .close-btn-container {
   padding: 16px;
   height: 55px;
@@ -24,6 +28,8 @@ body {
   width: 33px;
 }
 
+/* top-bar */
+
 .top-bar {
   display: flex;
   align-items: center;
@@ -32,9 +38,44 @@ body {
   height: 64px;
 }
 
-.gallery-container {
-  margin: 0 45px;
+.top-bar-selected-info {
+  display: flex;
 }
+.top-bar-selected-info label {
+  margin-left: 3px;
+}
+
+.top-bar-select-all {
+  margin-left: 10px;
+}
+
+.tob-bar-selected-btns button {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: transparent;
+  margin: 0 4px;
+  padding: 4px 8px;
+}
+
+.top-bar-dropdown {
+  width: 120px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.top-bar-dropdown-select {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 7px;
+  display: flex;
+  justify-content: space-between;
+
+}
+.top-bar-dropdown-list {
+  position: absolute;
+}
+
 
 /* card */
 
@@ -149,11 +190,33 @@ body {
   background-color: #fafafa;
   width: 100%;
   height: 100%;
+  position: relative;
+}
+.render-btn {
+  position: absolute;
+  top: 47%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  border: none;
+  border-radius: 7px;
+  background-color: #fafafa;
+  line-height: 1;
+  padding: 9px;
+  transition: all 0.3s;
+}
+.render-btn:hover {
+  background-color: #e1e1e1;
 }
 .render-img {
   display: block;
-  height: 100%;
+  height: inherit;
   margin: auto;
+}
+.render-btn.prev {
+  left: 30px;
+}
+.render-btn.next {
+  right: 30px;
 }
 
 /* render-bar */

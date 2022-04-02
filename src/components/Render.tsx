@@ -1,6 +1,7 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import RenderBar from "./RenderBar";
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
 interface Props {
   clickedURL: string;
@@ -29,25 +30,26 @@ const Render = ({
       />
       <div className="render-img-container">
         <button
-          className="render-prev-btn"
+          className="render-btn prev"
           type="button"
           onClick={() => {
             let current = mappingList.indexOf(clickedURL);
             SetClickedURL(mappingList[current - 1]);
           }}
         >
-          prev
+          <AiOutlineArrowLeft />
         </button>
         <button
-          className="render-next-btn"
+          className="render-btn next"
           type="button"
           onClick={() => {
             let current = mappingList.indexOf(clickedURL);
             SetClickedURL(mappingList[current + 1]);
           }}
         >
-          next
+          <AiOutlineArrowRight />
         </button>
+
         <img className="render-img" src={clickedURL} alt="" />
       </div>
     </div>,

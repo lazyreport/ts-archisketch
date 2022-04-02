@@ -1,6 +1,5 @@
 import React from "react";
-
-import "./styles.css";
+import { AiOutlineDownload, AiOutlineDelete } from "react-icons/ai";
 
 interface Props {
   loadedItems: number;
@@ -36,9 +35,13 @@ const TopBar = ({
               type="checkbox"
               name="checkbox"
               id="selectAll"
-              onChange={() => {
+              onChange={(e) => {
                 setSeletAll(!selectAll);
-                setCheckedList(mappingList);
+                if (checkedList === mappingList) {
+                  setCheckedList([]);
+                } else {
+                  setCheckedList(mappingList);
+                }
               }}
             />
             <label htmlFor="selectAll">모두 선택</label>
@@ -62,7 +65,7 @@ const TopBar = ({
               });
             }}
           >
-            다운로드
+            <AiOutlineDownload />
           </button>
           <button
             className="tob-bar-selected-delete"
@@ -77,14 +80,21 @@ const TopBar = ({
               setSeletAll(false);
             }}
           >
-            삭제
+            <AiOutlineDelete />
           </button>
           <button className="tob-bar-selected-cancel" type="button">
             선택 취소
           </button>
         </div>
       ) : (
-        <div className="top-bar-filter-dropdowns"></div>
+        <div className="top-bar-dropdown">
+           <div className="top-bar-dropdown-select">
+        <span>모든 렌더샷</span>
+        <span>{/* icon */}</span>
+           </div>
+           <div className="top-bar-dropdown-list">
+           </div>
+        </div>
       )}
     </div>
   );

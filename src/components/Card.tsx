@@ -33,9 +33,10 @@ const Card = ({
         <img className="gallery-card-img card-img-top" src={url} alt="render" />
         <div className="gallery-card-btns">
           <div className="gallery-checkbox-container">
-            <input
+            {
+             selectAll ?  <input
               type="checkbox"
-              defaultChecked={selectAll}
+              checked={selectAll}/* 아오 */
               className="gallery-checkbox-btn"
               onChange={() => {
                 if (checkedList.includes(url)) {
@@ -47,8 +48,25 @@ const Card = ({
                 } else {
                   setCheckedList([...checkedList, url]);
                 }
-              }}
-            />
+              }}/* 이게머니ㅠ */
+            /> : <input
+            type="checkbox"
+            defaultChecked={selectAll}
+            className="gallery-checkbox-btn"
+            onChange={() => {
+              if (checkedList.includes(url)) {
+                setCheckedList(
+                  checkedList.filter((x) => {
+                    return x !== url;
+                  })
+                );
+              } else {
+                setCheckedList([...checkedList, url]);
+              }
+            }}
+          />
+            }
+           
           </div>
           <div className="gallery-dropdown-container">
             <button className="gallery-dropdown-btn" type="button">

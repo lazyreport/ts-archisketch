@@ -17,6 +17,7 @@ const Gallery = () => {
   const [checkedList, setCheckedList] = useState<string[]>([]);
   useState<boolean>(true);
   const [selectAll, setSeletAll] = useState<boolean>(false);
+
   const downloadImg = (downloadUrl: string) => {
     axios({
       url: downloadUrl,
